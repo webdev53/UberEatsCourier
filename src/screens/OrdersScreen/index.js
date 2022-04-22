@@ -38,7 +38,11 @@ const OrdersScreen = () => {
             latitude: 27.67729546,
           }}
         >
-          <Entypo name="shop" size={24} color="green" />
+          <View
+            style={{ backgroundColor: 'green', padding: 5, borderRadius: 20 }}
+          >
+            <Entypo name="shop" size={24} color="white" />
+          </View>
         </Marker>
       </MapView>
 
