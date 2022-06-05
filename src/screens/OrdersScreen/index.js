@@ -30,20 +30,23 @@ const OrdersScreen = () => {
         showsUserLocation
         followsUserLocation
       >
-        <Marker
-          title={'hello'}
-          description={'world'}
-          coordinate={{
-            longitude: 85.3191375732,
-            latitude: 27.67729546,
-          }}
-        >
-          <View
-            style={{ backgroundColor: 'green', padding: 5, borderRadius: 20 }}
+        {orders.map((order) => (
+          <Marker
+            key={order.id}
+            title={order.Restaurant.name}
+            description={order.Restaurant.address}
+            coordinate={{
+              longitude: order.Restaurant.lat,
+              latitude: order.Restaurant.lng,
+            }}
           >
-            <Entypo name="shop" size={24} color="white" />
-          </View>
-        </Marker>
+            <View
+              style={{ backgroundColor: 'green', padding: 5, borderRadius: 20 }}
+            >
+              <Entypo name="shop" size={24} color="white" />
+            </View>
+          </Marker>
+        ))}
       </MapView>
 
       <BottomSheet ref={bottomSheetRef} snapPoints={snapPoints}>
